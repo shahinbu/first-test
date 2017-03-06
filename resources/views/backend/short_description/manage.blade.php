@@ -9,6 +9,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
+            <!-- /.panel-heading -->
             <div class="panel-body">
                 <h3 class="text-success">{{ Session::get('success')}}</h3>
                 <div class="table-responsive">
@@ -16,10 +17,7 @@
                         <thead>
                             <tr>
                                 <th>Title</th>
-                                <th>Designation</th>
                                 <th>Description</th>
-                                <th>Image</th>
-                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -27,20 +25,15 @@
                             @foreach($result as $object)
                             <tr>
                                 <td>{{$object->title}}</td>
-                                <td>{{$object->designation ? $object->designation :'N/A' }}</td>
-                                <td>{!! $object->description ? $object->description :'N/A' !!}</td>
+                                <td>{!!$object->short_description ? $object->short_description :'N/A'!!}</td>
                                 <td>
-                                    <img src="{{url($object->image)}}" width="100px">
-                                </td>
-                                <td>{{$object->status?'Published':'Unpublished'}}</td>
-                                <td>
-                                    <a href="{{url('ourteam/edit')}}/{{$object->id}}"><button class="btn btn-sm btn-success">Edit</button></a> 
+                                    <a href="{{url('shortdescription/edit')}}/{{$object->id}}"><button class="btn btn-sm btn-success">Edit</button></a> 
                                     | 
-                                    <a onclick="return confirm('Are you sure you want to delete this item?')" href="{{url('ourteam/delete')}}/{{$object->id}}">
+                                    <a onclick="return confirm('Are you sure you want to delete this item?')" href="{{url('shortdescription/delete')}}/{{$object->id}}">
                                         <button class="btn btn-sm btn-success">Delete</button>
                                     </a>
                                 </td>
-                            </tr>
+                            </tr> 
                             @endforeach
                         </tbody>
                     </table>

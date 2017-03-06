@@ -28,7 +28,6 @@
         <!--/.preloader-->
         <header id="home">
             <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
-
                 <div class="carousel-inner">
                     @foreach($slider as $key=>$obj)
                     @if($key == 0)
@@ -87,7 +86,7 @@
                     <div class="row">
                         <div class="text-center col-sm-8 col-sm-offset-2">
                             <h2>Our Services</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
+                            <p>{!! $serviceDes !!}</p>
                         </div>
                     </div> 
                 </div>
@@ -110,7 +109,7 @@
                 </div>
             </div>
         </section><!--/#services-->
-        <section id="about-us" class="parallax">
+        <section id="about-us" style="background-image: url({{url($about_us->image)}})" class="parallax">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
@@ -157,7 +156,7 @@
                 <div class="row">
                     <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
                         <h2>Our Portfolio</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
+                        <p>{!! $fortfolioDes !!}</p>
                     </div>
                 </div> 
             </div>
@@ -197,7 +196,7 @@
                 <div class="row">
                     <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
                         <h2>The Team</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
+                        <p>{!! $ourteamDes !!}</p>
                     </div>
                 </div>
                 <div class="team-members">
@@ -231,7 +230,6 @@
             </div>
         </section><!--/#team-->
 
-
         <section id="contact">
             <div id="google-map" class="wow fadeIn" data-latitude="23.753436" data-longitude="90.386353" data-wow-duration="1000ms" data-wow-delay="400ms"></div>
             <div id="contact-us" class="parallax">
@@ -239,8 +237,11 @@
                     <div class="row">
                         <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
                             <h2>Contact Us</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
+                            <p>{!! $contactDes !!}</p>
                         </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-success">{{ Session::get('success')}}</h3>
                     </div>
                     <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="row">
@@ -291,9 +292,9 @@
         <footer id="footer">
             <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
                 <div class="container text-center">
-                    <div class="footer-logo">
-                        <a href="index.html"><img class="img-responsive" src="images/logo.png" alt=""></a>
-                    </div>
+                    <!--                    <div class="footer-logo">
+                                            <a href="index.html"><img class="img-responsive" src="images/logo.png" alt=""></a>
+                                        </div>-->
                     <div class="social-icons">
                         <ul>
                             <li><a class="envelope" href="#"><i class="fa fa-envelope"></i></a></li>

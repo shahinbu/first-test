@@ -17,6 +17,11 @@
 
 Route::get('/', 'Home@index');
 
+Route::get('/artisan', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    return TRUE;
+});
 
 Auth::routes();
 Route::get('/dashboard', 'Dashboard@index');
@@ -24,6 +29,14 @@ Route::get('/dashboard', 'Dashboard@index');
 Route::post('sendMail', 'Home@sendEmail');
 
 Route::group(['middleware' => ['checkAuth']], function () {
+
+    // for Short  Description
+    Route::get('shortdescriptionadd', 'ShortDescription@addDescrition');
+    Route::post('shortdescription-store', 'ShortDescription@store');
+    Route::post('shortdescription-update', 'ShortDescription@update');
+    Route::get('shortdescription', 'ShortDescription@index');
+    Route::get('shortdescription/edit/{id}', 'ShortDescription@edit');
+    Route::get('shortdescription/delete/{id}', 'ShortDescription@delete');
 
 // for Slider
     Route::get('dashboard', 'Dashboard@index');
